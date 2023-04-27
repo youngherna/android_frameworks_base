@@ -63,7 +63,6 @@ public class TunerActivity extends CollapsingToolbarBaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_AppCompat_DayNight);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         setContentView(R.layout.tuner_activity);
@@ -72,7 +71,7 @@ public class TunerActivity extends CollapsingToolbarBaseActivity implements
             final String action = getIntent().getAction();
             final Fragment fragment;
             if ("com.android.settings.action.DEMO_MODE".equals(action)) {
-                fragment = new DemoModeFragment(mDemoModeController);
+                fragment = new DemoModeFragment(mDemoModeController, mGlobalSettings);
             } else if ("com.android.settings.action.STATUS_BAR_TUNER".equals(action)) {
                 fragment = new StatusBarTuner();
             } else {
